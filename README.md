@@ -1,5 +1,8 @@
 <div align="center">
 
+![TaskSphere Banner](https://capsule-render.vercel.app/api?type=venom&height=280&text=TaskSphere%20FastAPI&fontSize=60&fontAlign=50&fontAlignY=55&color=0:0d1117,50:0d2137,100:0d3b2e&fontColor=00ffa3&desc=Async%20REST%20API%20%7C%20JWT%20Auth%20%7C%20SQLAlchemy%202.0&descFontColor=7dd3fc&descAlignY=75&animation=fadeIn)
+
+
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&weight=700&size=28&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=TaskSphere+FastAPI;Async+REST+API+Backend;JWT+Auth+%7C+SQLAlchemy+2.0;Production-Grade+Python" alt="Typing SVG" /></a>
 
 <p><strong>A Modern, Production-Ready Asynchronous Task Management REST API</strong></p>
