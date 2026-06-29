@@ -1,79 +1,154 @@
 <div align="center">
-  <h1>🚀 TaskSphere</h1>
-  <p><strong>A Modern, Production-Ready Asynchronous Task Management REST API</strong></p>
+
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&weight=700&size=28&pause=1000&color=7C3AED&center=true&vCenter=true&width=600&lines=TaskSphere+FastAPI;Async+REST+API+Backend;JWT+Auth+%7C+SQLAlchemy+2.0;Production-Grade+Python" alt="Typing SVG" /></a>
+
+<p><strong>A Modern, Production-Ready Asynchronous Task Management REST API</strong></p>
+
+<p>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLAlchemy_2.0-306998?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Pydantic_V2-E92063?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/JWT_Auth-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" />
+  <img src="https://img.shields.io/badge/uv-Package_Manager-7C3AED?style=for-the-badge" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Status-Active-10b981?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-06b6d4?style=for-the-badge" />
+</p>
+
 </div>
 
 ---
 
 ## 🌟 Overview
 
-**TaskSphere** is a premium, end-to-end backend service built on the modern Python ecosystem. It demonstrates best practices in building REST APIs by integrating asynchronous workflows, secure JWT authentication, sub-route scoping, file attachments, and a beautifully designed glassmorphic landing page.
+**TaskSphere** is a full-featured, production-grade REST API backend demonstrating modern Python web development best practices. Built with **FastAPI**, it leverages async/await throughout the entire stack — from HTTP request handling to async database queries — making it capable of handling thousands of concurrent connections efficiently.
 
-Whether you're managing personal tasks or structuring complex workflows, TaskSphere provides a scalable, fast, and type-safe backend architecture.
+This project was built as a deep-dive FastAPI learning project, but is architected at a production level with real-world patterns.
+
+---
 
 ## ✨ Features
 
-- **Asynchronous Core**: Built on FastAPI and Starlette, taking full advantage of Python's `async`/`await` syntax to handle thousands of concurrent connections efficiently without thread blocking.
-- **Robust Security**: Secured with enterprise-grade JWT (JSON Web Tokens) Bearer Authentication and `bcrypt` password hashing.
-- **Modern Database**: Leveraging **SQLAlchemy 2.0 Async ORM** with `aiosqlite` for high-performance, non-blocking database operations, complete with eager loading and optimized query patterns.
-- **Data Validation**: Strict serialization and validation via **Pydantic V2**.
-- **Interactive UI**: Includes a beautifully crafted, responsive home page with micro-animations and a glassmorphism design system.
-- **Interactive API Docs**: Built-in Swagger UI (`/docs`) and ReDoc (`/redoc`) for live API testing and schema exploration.
+| Feature | Detail |
+|---|---|
+| ⚡ **Async Core** | Full `async`/`await` from routes to DB — no thread blocking |
+| 🔐 **JWT Auth** | Bearer token authentication with `bcrypt` password hashing |
+| 🗄️ **Async ORM** | SQLAlchemy 2.0 + `aiosqlite` with eager loading patterns |
+| ✅ **Validation** | Strict request/response validation via Pydantic V2 |
+| 📁 **File Uploads** | Attachment support via multipart form data |
+| 🎨 **Landing Page** | Glassmorphic, animated HTML landing page at `/` |
+| 📖 **Interactive Docs** | Swagger UI at `/docs` + ReDoc at `/redoc` |
+| 🔒 **Sub-route Scoping** | Clean route separation via FastAPI `APIRouter` |
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [FastAPI](https://fastapi.tiangolo.com/)
-- **Database**: SQLite (via `aiosqlite`)
-- **ORM**: [SQLAlchemy 2.0](https://www.sqlalchemy.org/) (Async)
-- **Data Validation**: [Pydantic V2](https://docs.pydantic.dev/)
-- **Authentication**: JWT & `bcrypt`
-- **Server**: Uvicorn
-- **Package Manager**: [uv](https://github.com/astral-sh/uv)
+| Layer | Technology |
+|---|---|
+| Framework | [FastAPI](https://fastapi.tiangolo.com/) + [Starlette](https://www.starlette.io/) |
+| Database | SQLite via [`aiosqlite`](https://github.com/omnilib/aiosqlite) |
+| ORM | [SQLAlchemy 2.0](https://www.sqlalchemy.org/) (Async mode) |
+| Validation | [Pydantic V2](https://docs.pydantic.dev/) |
+| Auth | JWT (`python-jose`) + `bcrypt` (`passlib`) |
+| Server | [Uvicorn](https://www.uvicorn.org/) (ASGI) |
+| Package Manager | [uv](https://github.com/astral-sh/uv) |
+
+---
+
+## 🗂️ Project Structure
+
+```
+FastApi-Practice/
+├── main.py                # Entry point — launches Uvicorn
+├── app/
+│   ├── app.py             # FastAPI app factory, middleware, CORS
+│   ├── config.py          # Settings via pydantic-settings
+│   ├── db.py              # Async engine + session factory
+│   ├── models.py          # SQLAlchemy ORM models
+│   ├── schemas.py         # Pydantic request/response schemas
+│   ├── security.py        # JWT creation/verification, bcrypt
+│   ├── dependencies.py    # FastAPI dependency injection
+│   ├── exceptions.py      # Custom HTTP exception handlers
+│   └── routes/            # APIRouter modules (auth, tasks, files)
+├── .env                   # Environment variables (not committed)
+├── pyproject.toml         # Project config + dependencies (uv)
+└── FASTAPI_GUIDE.md       # Deep-dive architecture walkthrough
+```
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- Python 3.10+
+- [`uv`](https://github.com/astral-sh/uv) package manager
 
-Ensure you have **Python 3.9+** and **uv** installed. 
-
-### 1. Clone the repository
+### 1. Clone
 ```bash
 git clone https://github.com/Shivansh-mishraji/FastApi-Practice.git
 cd FastApi-Practice
 ```
 
-### 2. Environment Variables
-Create a `.env` file in the root directory and add the following configuration:
+### 2. Set Environment Variables
+Create a `.env` file:
 ```env
 DATABASE_URL=sqlite+aiosqlite:///./practice.db
-SECRET_KEY=generate-a-strong-random-key-here
+SECRET_KEY=your-strong-random-secret-key-here
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 ```
 
 ### 3. Install Dependencies
-Using the fast `uv` package manager:
 ```bash
 uv sync
 ```
 
-### 4. Run the Development Server
-Start the server using `main.py` which is pre-configured with Uvicorn:
+### 4. Run the Server
 ```bash
 uv run python main.py
 ```
-Or run directly via Uvicorn:
+Or directly via Uvicorn:
 ```bash
 uv run uvicorn app.app:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-## 📖 API Documentation
+---
 
-Once the server is running, navigate to the following endpoints in your browser to explore the API:
+## 📖 API Endpoints
 
-- **Landing Page**: [http://localhost:8000/](http://localhost:8000/)
-- **Swagger UI (Interactive Docs)**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **ReDoc (Static Specs)**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+| Method | Endpoint | Auth | Description |
+|---|---|---|---|
+| `POST` | `/auth/register` | ❌ | Register a new user |
+| `POST` | `/auth/login` | ❌ | Get JWT access token |
+| `GET` | `/tasks/` | ✅ | List all tasks |
+| `POST` | `/tasks/` | ✅ | Create a task |
+| `PUT` | `/tasks/{id}` | ✅ | Update a task |
+| `DELETE` | `/tasks/{id}` | ✅ | Delete a task |
+| `POST` | `/tasks/{id}/upload` | ✅ | Attach a file |
+
+### Interactive Docs (when running locally)
+- 🌐 **Landing Page**: http://localhost:8000/
+- 📘 **Swagger UI**: http://localhost:8000/docs
+- 📗 **ReDoc**: http://localhost:8000/redoc
+
+---
 
 ## 📚 Deep Dive
 
-Want to learn how this architecture was built from the ground up? Check out the [FASTAPI_GUIDE.md](./FASTAPI_GUIDE.md) included in this repository for a comprehensive walkthrough of the design decisions, routing, and middleware setups.
+Check out **[FASTAPI_GUIDE.md](./FASTAPI_GUIDE.md)** for a comprehensive walkthrough of the architecture, routing design, middleware, and async patterns used in this project.
+
+---
+
+## 👤 Author
+
+**Shivansh Mishra** — ML Builder & AI Product Explorer  
+📍 Lucknow, India · [GitHub](https://github.com/Shivansh-mishraji) · [LinkedIn](https://www.linkedin.com/in/shivansh-mishra-132b97358)
+
+---
+
+<div align="center">
+  <i>Built as a production-grade FastAPI practice project — demonstrating async Python backend architecture.</i>
+</div>
