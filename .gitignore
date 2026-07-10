@@ -13,3 +13,7 @@ wheels/
 .env
 practice.db
 uploads/
+# Auto-added safety rules
+.venv/
+node_modules/
+*.whl
