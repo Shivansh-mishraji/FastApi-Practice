@@ -96,7 +96,7 @@ We use the modern `lifespan` method (registered via `@asynccontextmanager`) insi
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Runs on startup
-    await init_db() 
+    await init_db()
     yield
     # Runs on shutdown
     await engine.dispose()
