@@ -21,9 +21,9 @@ async def lifespan(app: FastAPI):
     # 1. Startup: Initialize tables in database asynchronously
     print("[LIFESPAN] Starting up application, running migrations...")
     await init_db()
-    
+
     yield  # API serves traffic here
-    
+
     # 2. Shutdown: Dispose of the database engine connection pool
     print("[LIFESPAN] Shutting down application, cleaning connection pools...")
     await engine.dispose()
@@ -55,17 +55,17 @@ async def add_process_time_header(request: Request, call_next):
     and attaches an 'X-Process-Time' header to the response.
     """
     start_time = time.time()
-    
+
     # Process the request through routers/endpoints
     response = await call_next(request)
-    
+
     # Calculate processing latency
     process_time = time.time() - start_time
     response.headers["X-Process-Time"] = f"{process_time:.4f}s"
-    
+
     # Log information (simple representation)
     print(f"[MIDDLEWARE LOG] {request.method} {request.url.path} processed in {process_time:.4f}s")
-    
+
     return response
 
 
