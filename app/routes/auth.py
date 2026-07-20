@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 # routes/auth.py: Authentication routes (register, login)
 from datetime import timedelta
 from fastapi import APIRouter, Depends, BackgroundTasks, status
