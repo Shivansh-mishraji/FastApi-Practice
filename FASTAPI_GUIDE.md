@@ -231,3 +231,5 @@ FastAPI generates interactive Swagger documentation automatically:
 4.  Once authorized, you can test protected category, task, and upload routes.
 
 > **Note:** This section is actively maintained and updated.
+
+> **Note:** This section is actively maintained and updated.
