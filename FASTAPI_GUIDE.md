@@ -229,3 +229,5 @@ FastAPI generates interactive Swagger documentation automatically:
 2.  Use the **Register** endpoint to create a user.
 3.  Click the **Authorize** button in Swagger and log in with your email and password.
 4.  Once authorized, you can test protected category, task, and upload routes.
+
+> **Note:** This section is actively maintained and updated.
