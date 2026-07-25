@@ -26,15 +26,15 @@ async def get_current_user(
     email = decode_access_token(token)
     if not email:
         raise AuthenticationFailedException("Could not validate credentials or token expired")
-    
+
     # Query database asynchronously to find the user
     query = select(User).where(User.email == email)
     result = await db.execute(query)
     user = result.scalar_one_or_none()
-    
+
     if not user:
         raise AuthenticationFailedException("User not found in system")
-    
+
     return user
 
 async def get_active_user(
