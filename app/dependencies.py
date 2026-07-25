@@ -41,7 +41,7 @@ async def get_active_user(
     current_user: User = Depends(get_current_user)
 ) -> User:
     """
-    Sub-dependency that ensures the authenticated user is currently active.
+    Sub-dependency that ensuresult the authenticated user is currently active.
     """
     if not current_user.is_active:
         raise AccessDeniedException("User account is inactive")
