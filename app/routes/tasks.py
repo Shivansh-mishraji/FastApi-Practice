@@ -20,15 +20,15 @@ router = APIRouter(prefix="/tasks", tags=["Tasks"])
 )
 async def read_tasks(
     status_filter: Optional[str] = Query(
-        None, 
-        alias="status", 
+        None,
+        alias="status",
         description="Filter tasks by status (pending, in_progress, completed)"
     ),
     priority_filter: Optional[int] = Query(
-        None, 
-        alias="priority", 
-        ge=1, 
-        le=5, 
+        None,
+        alias="priority",
+        ge=1,
+        le=5,
         description="Filter tasks by priority (1 to 5)"
     ),
     limit: int = Query(10, ge=1, le=100, description="Pagination limit"),
@@ -53,7 +53,7 @@ async def read_tasks(
 
     # Offset & Limit pagination + preloading category relationship
     query = query.offset(offset).limit(limit).options(selectinload(Task.category))
-    
+
     result = await db.execute(query)
     tasks = result.scalars().all()
     return tasks
@@ -75,7 +75,7 @@ async def create_task(
     if task_in.category_id:
         # Validate that category exists and belongs to this user
         cat_query = select(Category).where(
-            Category.id == task_in.category_id, 
+            Category.id == task_in.category_id,
             Category.owner_id == current_user.id
         )
         cat_result = await db.execute(cat_query)
@@ -150,7 +150,7 @@ async def update_task(
     # If category is updating, validate it
     if task_in.category_id is not None:
         cat_query = select(Category).where(
-            Category.id == task_in.category_id, 
+            Category.id == task_in.category_id,
             Category.owner_id == current_user.id
         )
         cat_result = await db.execute(cat_query)
