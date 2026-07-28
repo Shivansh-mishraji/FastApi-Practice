@@ -31,7 +31,7 @@ def register_exception_handlers(app: FastAPI):
     Registers global exception handlers with the FastAPI app instance.
     This demonstrates exception customization and middleware-like intercepts.
     """
-    
+
     @app.exception_handler(EntityNotFoundException)
     async def entity_not_found_handler(request: Request, exc: EntityNotFoundException):
         return JSONResponse(
