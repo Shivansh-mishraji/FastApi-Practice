@@ -15,16 +15,16 @@ class Settings:
     PROJECT_NAME: str = "TaskSphere API"
     VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
-    
+
     # Security Configurations
     # In production, this MUST be a strong, randomly generated secret key
     SECRET_KEY: str = os.getenv("SECRET_KEY", "super-secret-key-that-no-one-can-guess-1234567890")
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60"))
-    
+
     # Database Configuration
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./practice.db")
-    
+
     # Upload Configurations
     UPLOAD_DIR: Path = BASE_DIR / "uploads"
 
