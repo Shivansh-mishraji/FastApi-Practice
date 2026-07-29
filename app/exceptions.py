@@ -23,7 +23,6 @@ class DuplicateEntityException(AppException):
     """Raised when creating an entity that violates uniqueness constraints."""
     pass
 
-
 # Global handlers to translate custom Python exceptions into standard HTTP responses
 
 def register_exception_handlers(app: FastAPI):
