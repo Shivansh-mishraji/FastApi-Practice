@@ -68,7 +68,6 @@ async def add_process_time_header(request: Request, call_next):
 
     return response
 
-
 # --- STATIC FILES MOUNT ---
 # Serves uploaded files statically so users can view attachments directly
 app.mount(
@@ -77,11 +76,9 @@ app.mount(
     name="uploads"
 )
 
-
 # --- EXCEPTION HANDLERS ---
 # Register global exception handlers for clean client error JSON responses
 register_exception_handlers(app)
-
 
 # --- ROUTER REGISTRATION ---
 # Include modular routers under a clean API prefix namespace
@@ -89,7 +86,6 @@ app.include_router(auth.router, prefix=settings.API_V1_STR)
 app.include_router(categories.router, prefix=settings.API_V1_STR)
 app.include_router(tasks.router, prefix=settings.API_V1_STR)
 app.include_router(uploads.router, prefix=settings.API_V1_STR)
-
 
 # --- HEALTH CHECK ENDPOINT ---
 @app.get("/health", tags=["System Health"], summary="Verify server is alive")
@@ -99,7 +95,6 @@ async def health_check():
         "project": settings.PROJECT_NAME,
         "version": settings.VERSION
     }
-
 
 # --- HOME PAGE LANDING ROUTE ---
 @app.get("/", response_class=HTMLResponse, tags=["Landing Page"], summary="Serve landing page")
