@@ -111,7 +111,7 @@ async def read_task(
     db: AsyncSession = Depends(get_async_session)
 ):
     """
-    Retrieve a specific task by ID. Ensures current user ownership.
+    Retrieve a specific task by ID. Ensuresult current user ownership.
     """
     query = select(Task).where(Task.id == task_id).options(selectinload(Task.category))
     result = await db.execute(query)
